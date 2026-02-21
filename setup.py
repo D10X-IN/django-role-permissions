@@ -50,13 +50,9 @@ def get_package_data(package):
                           for filename in filenames])
     return {package: filepaths}
 
-# python setup.py register
-if sys.argv[-1] == 'publish':
-    os.system("python setup.py sdist upload")
-    args = {'version': get_version(package)}
-    print("You probably want to also tag the version now:")
-    print("  git tag -a %(version)s -m 'version %(version)s'" % args)
-    print("  git push --tags")
+
+if sys.argv[-1] == 'version':
+    print(get_version(package))
     sys.exit()
 
 
@@ -66,6 +62,7 @@ setup(
     url='http://github.com/vintasoftware/django-role-permissions',
     license='MIT',
     description='A django app for role based permissions.',
+    long_description_content_type="text/markdown",
     author='Filipe Ximenes',
     author_email='filipeximenes@gmail.com',
     packages=get_packages(package),
@@ -77,8 +74,10 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
     ],
 )
